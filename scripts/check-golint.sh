@@ -24,7 +24,7 @@ export GOBIN="${ROOT_DIR}/_output/local/bin"
 PATH="${GOBIN}:${PATH}"
 
 # Install golint from vendor/...
-go install ./vendor/golang.org/x/lint/golint
+go get -u golang.org/x/lint/golint
 
 diff=$(find . -name "*.go"| grep -v "/vendor/" | xargs -L 1 golint)
 if [ -n "${diff}" ]; then
