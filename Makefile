@@ -13,7 +13,7 @@
 # limitations under the License.
 
 
-PKG=github.com/GoogleCloudPlatform/k8s-multicluster-ingress
+PKG=github.com/slamdev/k8s-multicluster-ingress
 COVERPROFILE=combined.coverprofile
 
 # So that make test is not confused with the test directory.
