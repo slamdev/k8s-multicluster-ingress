@@ -1,4 +1,4 @@
-package: github.com/GoogleCloudPlatform/k8s-multicluster-ingress
+package: github.com/slamdev/k8s-multicluster-ingress
 import:
 - package: github.com/spf13/cobra
 - package: github.com/spf13/pflag
