@@ -25,7 +25,7 @@ type SyncerInterface interface {
 	// EnsureSSLCert ensures that the required ssl cert exists for the given ingress.
 	// Will only change an existing SSL cert if forceUpdate=True.
 	// Returns the self link for the ensured ssl cert.
-	EnsureSSLCert(lbName string, ing *v1beta1.Ingress, client kubeclient.Interface, forceUpdate bool) (string, error)
+	EnsureSSLCert(lbName string, ing *v1beta1.Ingress, client kubeclient.Interface, forceUpdate bool) ([]string, error)
 	// DeleteSSLCert deletes the ssl cert that EnsureSSLCert would have created.
 	DeleteSSLCert() error
 }

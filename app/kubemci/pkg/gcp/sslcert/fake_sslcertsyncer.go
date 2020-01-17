@@ -45,12 +45,12 @@ var _ SyncerInterface = &fakeSSLCertSyncer{}
 
 // EnsureSSLCert ensures that the required ssl certs exist for the given load balancer.
 // See interface for more details.
-func (f *fakeSSLCertSyncer) EnsureSSLCert(lbName string, ing *v1beta1.Ingress, client kubeclient.Interface, forceUpdate bool) (string, error) {
+func (f *fakeSSLCertSyncer) EnsureSSLCert(lbName string, ing *v1beta1.Ingress, client kubeclient.Interface, forceUpdate bool) ([]string, error) {
 	f.EnsuredSSLCerts = append(f.EnsuredSSLCerts, fakeSSLCert{
 		LBName:  lbName,
 		Ingress: ing,
 	})
-	return FakeSSLCertSelfLink, nil
+	return []string{FakeSSLCertSelfLink}, nil
 }
 
 // DeleteSSLCert deletes the ssl certs that EnsureSSLCert would have created.
