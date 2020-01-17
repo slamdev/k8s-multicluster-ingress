@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/cmd/kubemci/app"
+	"github.com/slamdev/k8s-multicluster-ingress/cmd/kubemci/app"
 )
 
 func main() {

@@ -17,8 +17,8 @@ package urlmap
 import (
 	"k8s.io/api/extensions/v1beta1"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/backendservice"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/backendservice"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
 )
 
 // SyncerInterface is an interface to manage GCP url maps.

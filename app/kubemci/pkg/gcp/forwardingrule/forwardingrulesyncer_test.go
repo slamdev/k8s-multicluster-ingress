@@ -23,9 +23,9 @@ import (
 	ingresslb "k8s.io/ingress-gce/pkg/loadbalancers"
 	"k8s.io/ingress-gce/pkg/utils"
 
-	utilsnamer "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/goutils"
+	utilsnamer "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/goutils"
 	"github.com/golang/glog"
 )
 
@@ -630,7 +630,7 @@ func TestRemoveClustersFromStatusWithStatus(t *testing.T) {
 			name := typedFRS.namer.HTTPSForwardingRuleName()
 			// Add status to the forwarding rule to simulate old forwarding rule which has status.
 			// TODO: This should not be required once lbc.RemoveFromClusters can update url map status:
-			// https://github.com/GoogleCloudPlatform/k8s-multicluster-ingress/pull/151
+			// https://github.com/slamdev/k8s-multicluster-ingress/pull/151
 			if err := addStatus(typedFRS, lbName, name, ipAddr, clusters); err != nil {
 				t.Errorf("%s", err)
 			}

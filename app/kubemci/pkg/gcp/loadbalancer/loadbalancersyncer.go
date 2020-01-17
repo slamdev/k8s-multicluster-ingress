@@ -35,18 +35,18 @@ import (
 	"k8s.io/kubernetes/pkg/cloudprovider/providers/gce"
 	"k8s.io/kubernetes/pkg/printers"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/backendservice"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/firewallrule"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/forwardingrule"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/instances"
-	utilsnamer "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/sslcert"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/targetproxy"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/urlmap"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/utils"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/backendservice"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/firewallrule"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/forwardingrule"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/instances"
+	utilsnamer "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/sslcert"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/targetproxy"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/urlmap"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/utils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
 )
 
 const (
@@ -381,7 +381,7 @@ func (l *Syncer) getLoadBalancerStatus() (*status.LoadBalancerStatus, error) {
 	// First try to fetch the status from url map.
 	// If that fails, then we fetch it from forwarding rule.
 	// This is because we first used to store the status on forwarding rules and then migrated to url maps.
-	// https://github.com/GoogleCloudPlatform/k8s-multicluster-ingress/issues/145 has more details.
+	// https://github.com/slamdev/k8s-multicluster-ingress/issues/145 has more details.
 	umStatus, umErr := l.ums.GetLoadBalancerStatus(l.lbName)
 	if umStatus != nil && umErr == nil {
 		return umStatus, nil
@@ -428,7 +428,7 @@ func (l *Syncer) ListLoadBalancers() (string, error) {
 	var err error
 	// We fetch the list from both url maps and forwarding rules and then merge them.
 	// This is because we first used to store the status on forwarding rules and then migrated to url maps.
-	// https://github.com/GoogleCloudPlatform/k8s-multicluster-ingress/issues/145 has more details.
+	// https://github.com/slamdev/k8s-multicluster-ingress/issues/145 has more details.
 	umBalancers, umErr := l.ums.ListLoadBalancerStatuses()
 	if umErr != nil {
 		// Aggregate errors and return all at the end.

@@ -25,8 +25,8 @@ import (
 
 	"github.com/golang/glog"
 
-	gcputils "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/utils"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
+	gcputils "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/utils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
 	"k8s.io/apimachinery/pkg/util/wait"
 	kubeclient "k8s.io/client-go/kubernetes"
 )

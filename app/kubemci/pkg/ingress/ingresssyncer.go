@@ -14,7 +14,7 @@ import (
 	kubeclient "k8s.io/client-go/kubernetes"
 	"k8s.io/ingress-gce/pkg/annotations"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
 )
 
 var (

@@ -22,8 +22,8 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	ingressbe "k8s.io/ingress-gce/pkg/backends"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
-	utilsnamer "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
+	utilsnamer "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
 	"github.com/golang/glog"
 )
 

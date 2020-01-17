@@ -29,8 +29,8 @@ import (
 	ingressbe "k8s.io/ingress-gce/pkg/backends"
 	"k8s.io/ingress-gce/pkg/utils"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
-	utilsnamer "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
+	utilsnamer "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
 )
 
 // Syncer manages GCP backend services for multicluster GCP L7 load balancers.

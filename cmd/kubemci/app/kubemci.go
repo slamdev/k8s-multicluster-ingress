@@ -17,7 +17,7 @@ package app
 import (
 	"os"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/cmd"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/cmd"
 )
 
 // Run runs the whole kubemci command.

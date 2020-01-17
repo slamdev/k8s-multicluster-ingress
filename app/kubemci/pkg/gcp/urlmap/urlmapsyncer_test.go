@@ -28,10 +28,10 @@ import (
 	ingresslb "k8s.io/ingress-gce/pkg/loadbalancers"
 	"k8s.io/ingress-gce/pkg/utils"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/backendservice"
-	utilsnamer "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/goutils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/backendservice"
+	utilsnamer "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/goutils"
 )
 
 func TestEnsureURLMap(t *testing.T) {

@@ -18,7 +18,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
 )
 
 // Test to verify validate.

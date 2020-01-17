@@ -21,7 +21,7 @@ import (
 
 	kubeclient "k8s.io/client-go/kubernetes"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
 	"github.com/golang/glog"
 	multierror "github.com/hashicorp/go-multierror"
 	"k8s.io/api/extensions/v1beta1"

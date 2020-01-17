@@ -17,8 +17,8 @@ package forwardingrule
 import (
 	"fmt"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/goutils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/goutils"
 )
 
 type fakeForwardingRule struct {

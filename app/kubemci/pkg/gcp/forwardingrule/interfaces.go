@@ -15,7 +15,7 @@
 package forwardingrule
 
 import (
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
 )
 
 // SyncerInterface is an interface to manage GCP forwarding rules.

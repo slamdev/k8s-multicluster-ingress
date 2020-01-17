@@ -31,7 +31,7 @@ import (
 	"k8s.io/ingress-gce/pkg/tls"
 	"k8s.io/ingress-gce/pkg/utils"
 
-	utilsnamer "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
+	utilsnamer "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
 )
 
 // Syncer manages GCP ssl certs for multicluster GCP L7 load balancers.
@@ -169,7 +169,7 @@ func (s *Syncer) updateSSLCert(desiredCert *compute.SslCertificate) (string, err
 	// What we do here is simpler, but can lead to downtime in the brief period
 	// when we have deleted the old cert but havent created the new one.
 	// TODO(nikhiljindal): Converge this with ingress-gce by sharing the same code.
-	// https://github.com/GoogleCloudPlatform/k8s-multicluster-ingress/issues/124
+	// https://github.com/slamdev/k8s-multicluster-ingress/issues/124
 	err := s.scp.DeleteSslCertificate(name)
 	if err != nil {
 		return "", fmt.Errorf("error in deleting ssl cert %s: %s", name, err)

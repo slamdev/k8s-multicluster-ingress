@@ -27,7 +27,7 @@ import (
 	ingresslb "k8s.io/ingress-gce/pkg/loadbalancers"
 	"k8s.io/ingress-gce/pkg/utils"
 
-	utilsnamer "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
+	utilsnamer "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
 )
 
 // Syncer manages GCP target proxies for multicluster GCP L7 load balancers.
@@ -149,7 +149,7 @@ func (s *Syncer) updateHTTPTargetProxy(desiredHTTPProxy *compute.TargetHttpProxy
 	// There is no UpdateTargetHTTPProxy method.
 	// Apart from name, UrlMap is the only field that can be different. We update that field directly.
 	// TODO(nikhiljindal): Handle description field differences:
-	// https://github.com/GoogleCloudPlatform/k8s-multicluster-ingress/issues/94.
+	// https://github.com/slamdev/k8s-multicluster-ingress/issues/94.
 	urlMap := &compute.UrlMap{SelfLink: desiredHTTPProxy.UrlMap}
 	glog.Infof("Setting URL Map to:%+v", urlMap)
 	err := s.tpp.SetUrlMapForTargetHttpProxy(desiredHTTPProxy, urlMap)
@@ -247,7 +247,7 @@ func (s *Syncer) updateHTTPSTargetProxy(desiredHTTPSProxy *compute.TargetHttpsPr
 	// There is no UpdateTargetHTTPSProxy method.
 	// Apart from name, UrlMap is the only field that can be different. We update that field directly.
 	// TODO(nikhiljindal): Handle description field differences:
-	// https://github.com/GoogleCloudPlatform/k8s-multicluster-ingress/issues/94.
+	// https://github.com/slamdev/k8s-multicluster-ingress/issues/94.
 	err := s.tpp.SetUrlMapForTargetHttpsProxy(desiredHTTPSProxy, &compute.UrlMap{SelfLink: desiredHTTPSProxy.UrlMap})
 	if err != nil {
 		return "", err

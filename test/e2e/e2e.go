@@ -17,7 +17,7 @@ package main
 import (
 	"flag"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/test/e2e/cases"
+	"github.com/slamdev/k8s-multicluster-ingress/test/e2e/cases"
 )
 
 func main() {

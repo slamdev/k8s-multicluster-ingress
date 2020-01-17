@@ -18,9 +18,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/ingress"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/validations"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/ingress"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/validations"
 	"k8s.io/api/extensions/v1beta1"
 	kubeclient "k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/kubernetes/fake"

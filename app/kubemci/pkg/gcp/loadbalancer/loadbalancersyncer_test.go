@@ -34,14 +34,14 @@ import (
 	ingressig "k8s.io/ingress-gce/pkg/instances"
 	ingresslb "k8s.io/ingress-gce/pkg/loadbalancers"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/backendservice"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/firewallrule"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/forwardingrule"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/sslcert"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/targetproxy"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/urlmap"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/backendservice"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/firewallrule"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/forwardingrule"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/sslcert"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/status"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/targetproxy"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/urlmap"
 	"github.com/golang/glog"
 )
 

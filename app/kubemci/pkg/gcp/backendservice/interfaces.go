@@ -18,7 +18,7 @@ import (
 	compute "google.golang.org/api/compute/v1"
 	ingressbe "k8s.io/ingress-gce/pkg/backends"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
 )
 
 // NamedPortsMap is a map of port number to the named port for that port.

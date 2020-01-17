@@ -22,7 +22,7 @@ import (
 	"golang.org/x/oauth2/google"
 	compute "google.golang.org/api/compute/v1"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/utils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/utils"
 )
 
 // NewInstanceGetter returns an InstanceGetter implementation.

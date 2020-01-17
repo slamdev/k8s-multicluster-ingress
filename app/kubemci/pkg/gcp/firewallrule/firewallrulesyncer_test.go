@@ -24,8 +24,8 @@ import (
 	ingressbe "k8s.io/ingress-gce/pkg/backends"
 	ingressfw "k8s.io/ingress-gce/pkg/firewalls"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/instances"
-	utilsnamer "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/instances"
+	utilsnamer "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
 )
 
 func TestEnsureFirewallRule(t *testing.T) {

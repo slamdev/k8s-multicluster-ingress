@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
 )
 
 // GetZoneAndNameFromIGURL returns the zone and name of the instance group from a GCP instance group URL.

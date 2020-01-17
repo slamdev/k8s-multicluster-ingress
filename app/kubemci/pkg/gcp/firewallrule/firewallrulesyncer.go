@@ -29,8 +29,8 @@ import (
 	ingressfw "k8s.io/ingress-gce/pkg/firewalls"
 	"k8s.io/ingress-gce/pkg/utils"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/instances"
-	utilsnamer "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/instances"
+	utilsnamer "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
 )
 
 // Src ranges from which the GCE L7 performs health checks.
@@ -257,7 +257,7 @@ func (s *Syncer) desiredFirewallRuleWithoutClusters(existingFW *compute.Firewall
 	// But we do not want to change existing tags for clusters that are already working.
 	// Ideally network tags should only be appended to, so this should not be a problem.
 	// TODO(nikhiljindal): Fix this if it becomes a problem:
-	// https://github.com/GoogleCloudPlatform/k8s-multicluster-ingress/issues/147
+	// https://github.com/slamdev/k8s-multicluster-ingress/issues/147
 	targetTags, err := s.getTargetTags(instances)
 	if err != nil {
 		return nil, err

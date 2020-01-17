@@ -21,9 +21,9 @@ import (
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/cloudinterface"
-	gcplb "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/loadbalancer"
-	gcputils "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/utils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/cloudinterface"
+	gcplb "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/loadbalancer"
+	gcputils "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/utils"
 )
 
 var (

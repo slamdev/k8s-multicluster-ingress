@@ -19,7 +19,7 @@ import (
 
 	ingresslb "k8s.io/ingress-gce/pkg/loadbalancers"
 
-	utilsnamer "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
+	utilsnamer "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/namer"
 	"github.com/golang/glog"
 )
 

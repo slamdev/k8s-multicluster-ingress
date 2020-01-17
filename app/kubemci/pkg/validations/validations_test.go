@@ -17,7 +17,7 @@ package validations
 import (
 	"testing"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/ingress"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/ingress"
 	"github.com/golang/glog"
 
 	"k8s.io/api/core/v1"

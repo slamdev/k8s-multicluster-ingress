@@ -4,7 +4,6 @@ go 1.13
 
 require (
 	cloud.google.com/go v0.26.0
-	github.com/GoogleCloudPlatform/k8s-multicluster-ingress v0.0.0
 	github.com/coreos/bbolt v1.3.3 // indirect
 	github.com/coreos/etcd v3.3.18+incompatible // indirect
 	github.com/coreos/go-semver v0.3.0 // indirect
@@ -67,5 +66,3 @@ require (
 	k8s.io/utils v0.0.0-20171122000934-aedf551cdb8b // indirect
 	sigs.k8s.io/yaml v1.1.0 // indirect
 )
-
-replace github.com/GoogleCloudPlatform/k8s-multicluster-ingress => ./

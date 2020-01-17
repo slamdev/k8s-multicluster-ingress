@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
 	"github.com/golang/glog"
 	kubeclient "k8s.io/client-go/kubernetes"
 	// Needed for authenticating gcp clusters

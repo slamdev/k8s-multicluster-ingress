@@ -18,7 +18,7 @@ import (
 	compute "google.golang.org/api/compute/v1"
 	ingressbe "k8s.io/ingress-gce/pkg/backends"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/healthcheck"
 )
 
 // FakeBackendService is a fake representation of a backend service ensured by invoking EnsureBackendService.

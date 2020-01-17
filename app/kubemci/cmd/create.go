@@ -25,12 +25,12 @@ import (
 	// gcp is needed for GKE cluster auth to work.
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/cloudinterface"
-	gcplb "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/loadbalancer"
-	gcputils "github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/gcp/utils"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/ingress"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
-	"github.com/GoogleCloudPlatform/k8s-multicluster-ingress/app/kubemci/pkg/validations"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/cloudinterface"
+	gcplb "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/loadbalancer"
+	gcputils "github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/gcp/utils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/ingress"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/kubeutils"
+	"github.com/slamdev/k8s-multicluster-ingress/app/kubemci/pkg/validations"
 )
 
 var (
