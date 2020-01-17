@@ -56,4 +56,4 @@ coveralls:
 		-coverprofile=${COVERPROFILE}
 
 build:
-	go build -a -installsuffix cgo ${GOPATH}/src/${PKG}/cmd/kubemci/kubemci.go
+	go build -mod vendor -a -installsuffix cgo ./cmd/kubemci/kubemci.go
