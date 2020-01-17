@@ -90,7 +90,7 @@ func TestEnsureSSLCertForSecret(t *testing.T) {
 				t.Logf("Skipping validation.")
 				continue
 			}
-			if ensuredCertName != certName {
+			if ensuredCertName[0] != certName {
 				t.Errorf("unexpected cert name, expected: %s, actual: %s", certName, ensuredCertName)
 			}
 			// Verify that GET does not return NotFound.
@@ -141,7 +141,7 @@ func TestEnsureSSLCertForPreShared(t *testing.T) {
 	if err != nil {
 		t.Errorf("unexpected error in ensuring ssl cert: %s", err)
 	}
-	if ensuredCertName != certName {
+	if ensuredCertName[0] != certName {
 		t.Errorf("unexpected ensured cert name, expected: %s, actual: %s", certName, ensuredCertName)
 	}
 }

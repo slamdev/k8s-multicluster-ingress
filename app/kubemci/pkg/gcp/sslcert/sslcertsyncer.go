@@ -16,8 +16,10 @@ package sslcert
 
 import (
 	"fmt"
+	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"net/http"
 	"reflect"
+	"strings"
 
 	compute "google.golang.org/api/compute/v1"
 
@@ -53,27 +55,57 @@ var _ SyncerInterface = &Syncer{}
 
 // EnsureSSLCert ensures that the required ssl certs exist for the given ingress.
 // See the interface for more details.
-func (s *Syncer) EnsureSSLCert(lbName string, ing *v1beta1.Ingress, client kubeclient.Interface, forceUpdate bool) (string, error) {
+func (s *Syncer) EnsureSSLCert(lbName string, ing *v1beta1.Ingress, client kubeclient.Interface, forceUpdate bool) ([]string, error) {
 	fmt.Println("Ensuring ssl cert")
 	annotations := annotations.FromIngress(ing)
 	if annotations.UseNamedTLS() != "" {
-		return s.ensurePreSharedSSLCert(lbName, ing, forceUpdate)
+		return s.ensurePreSharedSSLCert(lbName, ing, client, forceUpdate)
 	}
-	return s.ensureSecretSSLCert(lbName, ing, client, forceUpdate)
+	secretCert, err := s.ensureSecretSSLCert(lbName, ing, client, forceUpdate)
+	if err != nil {
+		return nil, err
+	}
+	return []string{secretCert}, nil
 }
 
-func (s *Syncer) ensurePreSharedSSLCert(lbName string, ing *v1beta1.Ingress, forceUpdate bool) (string, error) {
+func (s *Syncer) ensurePreSharedSSLCert(lbName string, ing *v1beta1.Ingress, client kubeclient.Interface, forceUpdate bool) ([]string, error) {
 	ingAnnotations := annotations.FromIngress(ing)
-	certName := ingAnnotations.UseNamedTLS()
-	if certName == "" {
-		return "", fmt.Errorf("unexpected empty value for %s annotation", annotations.PreSharedCertKey)
+	certNamesString := ingAnnotations.UseNamedTLS()
+	if certNamesString == "" {
+		return nil, fmt.Errorf("unexpected empty value for %s annotation", annotations.PreSharedCertKey)
 	}
-	// Fetch the certificate and return its self link.
-	cert, err := s.scp.GetSslCertificate(certName)
+	certNames := strings.Split(certNamesString, ",")
+	certs := make([]string, len(certNames))
+	for i, name := range certNames {
+		certID, err := getIDFromManagedCert(strings.TrimSpace(name), ing.Namespace, client)
+		if err != nil {
+			return nil, err
+		}
+		fmt.Println("Found", certID, "for", name)
+		// Fetch the certificate and return its self link.
+		cert, err := s.scp.GetSslCertificate(certID)
+		if err != nil {
+			return nil, err
+		}
+		certs[i] = cert.SelfLink
+	}
+	return certs, nil
+}
+
+func getIDFromManagedCert(name string, namespace string, client kubeclient.Interface) (string, error) {
+	r := client.CoreV1().RESTClient().Get().
+		AbsPath("apis", "networking.gke.io", "v1beta1").
+		Namespace(namespace).
+		Resource("managedcertificates").
+		Name(name)
+	var o unstructured.Unstructured
+	err := r.Do().Into(&o)
 	if err != nil {
+		err = fmt.Errorf("error %s in getting managedcertificates resource", err)
+		fmt.Println(err)
 		return "", err
 	}
-	return cert.SelfLink, nil
+	return o.UnstructuredContent()["status"].(map[string]interface{})["certificateName"].(string), nil
 }
 
 func (s *Syncer) ensureSecretSSLCert(lbName string, ing *v1beta1.Ingress, client kubeclient.Interface, forceUpdate bool) (string, error) {

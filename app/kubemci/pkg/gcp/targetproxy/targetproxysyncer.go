@@ -63,7 +63,7 @@ func (s *Syncer) EnsureHTTPTargetProxy(lbName, umLink string, forceUpdate bool) 
 
 // EnsureHTTPSTargetProxy ensures that the required https target proxy exists for the given url map.
 // Does nothing if it exists already, else creates a new one.
-func (s *Syncer) EnsureHTTPSTargetProxy(lbName, umLink, certLink string, forceUpdate bool) (string, error) {
+func (s *Syncer) EnsureHTTPSTargetProxy(lbName string, umLink string, certLink []string, forceUpdate bool) (string, error) {
 	fmt.Println("Ensuring http target proxy.")
 	var err error
 	tpLink, proxyErr := s.ensureHTTPSProxy(lbName, umLink, certLink, forceUpdate)
@@ -211,7 +211,7 @@ func (s *Syncer) desiredHTTPTargetProxy(lbName, umLink string) *compute.TargetHt
 // ensureHTTPSProxy ensures that the required target proxy exists for the given port.
 // Does nothing if it exists already, else creates a new one.
 // Returns the self link for the ensured https proxy.
-func (s *Syncer) ensureHTTPSProxy(lbName, umLink, certLink string, forceUpdate bool) (string, error) {
+func (s *Syncer) ensureHTTPSProxy(lbName string, umLink string, certLink []string, forceUpdate bool) (string, error) {
 	fmt.Println("Ensuring target https proxy")
 	desiredHTTPSProxy := s.desiredHTTPSTargetProxy(lbName, umLink, certLink)
 	name := desiredHTTPSProxy.Name
@@ -292,12 +292,12 @@ func targetHTTPSProxyMatches(desiredHTTPSProxy, existingHTTPSProxy compute.Targe
 	}
 	return equal
 }
-func (s *Syncer) desiredHTTPSTargetProxy(lbName, umLink, certLink string) *compute.TargetHttpsProxy {
+func (s *Syncer) desiredHTTPSTargetProxy(lbName string, umLink string, certLink []string) *compute.TargetHttpsProxy {
 	// Compute the desired target https proxy.
 	return &compute.TargetHttpsProxy{
 		Name:            s.namer.TargetHTTPSProxyName(),
 		Description:     fmt.Sprintf("Target https proxy for kubernetes multicluster loadbalancer %s", lbName),
 		UrlMap:          umLink,
-		SslCertificates: []string{certLink},
+		SslCertificates: certLink,
 	}
 }
